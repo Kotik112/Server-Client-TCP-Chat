@@ -15,7 +15,7 @@ public class ListeningThread implements Runnable {
     }
 
     public void startListening() {
-        System.out.println("-server: Start listening for sockets!");
+        System.out.println("Server: Start listening for sockets!"); //For debugging. Remove later.
 
         if (listenerThread == null) {
             listenerThread = new Thread(this);

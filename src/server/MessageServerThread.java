@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketException;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class MessageServerThread implements Runnable {
@@ -25,7 +26,7 @@ public class MessageServerThread implements Runnable {
     }
 
     public void startListening() {
-        System.out.println("Server: Start listening for client!");
+        System.out.println("Server: Start listening for client!");   //For debugging. Remove later.
 
         if (listenerThread == null) {
             listenerThread = new Thread(this);
@@ -34,19 +35,30 @@ public class MessageServerThread implements Runnable {
 
     }
 
+    /**
+     * Used with Event type 3. Send Message.
+     * Refer to model.Event for Event documentation.
+     * @param m Message object m. (See model.Event documentation.
+     */
     public void sendMessage(Message m) {
         try {
             out.writeObject(new Event(3, m));
+            out.reset();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Used by the server to update the "connected users" list on client side.
+     * @param u List of all connected users.
+     */
     public void sendUserList(ArrayList<User> u) {
         try {
-            System.out.println("Server: Sending list with users sized " + u.size());
+            System.out.println("Server: Sending list with users sized " + u.size()); //For debugging. Remove later.
             out.writeObject(new Event(4, u));
+            out.reset();    //Clears buffer
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,11 +66,11 @@ public class MessageServerThread implements Runnable {
 
     public void handleEvent(Event e) {
         if(e.getEventType() == 1) {
-            System.out.println("Server: Got a new user");
+            System.out.println("Server: Got a new user"); //For debugging. Remove later.
             messageServer.addUser(e.getUser());
         }
         else if(e.getEventType() == 3) {
-            System.out.println("Server: Got a new message.");
+            System.out.println("Server: Got a new message."); //For debugging. Remove later.
             messageServer.handleMessage(e.getMessage());
         }
     }
@@ -88,6 +100,7 @@ public class MessageServerThread implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException occurred.");
             e.printStackTrace();
         }
     }
