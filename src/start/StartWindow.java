@@ -1,8 +1,10 @@
 /*TODO:
     - Add Enums to event types.
-    - Change connected user list to display alphabetically
-                    instead of the order in which they connected.
-    -
+    - Add a message that "User X has connected to the chat" message to keep track of users coming and leaving.
+    - Change connected user list to display alphabetically instead of the order in which they connected.
+    - Add removeUser() feature. It should remove and update the connected user list upon connecting.
+    - Optional: Add a disconnect button to close the connection. (removeUser(), connection.close(), etc).
+    - For final release: Change code so it can operate over the open web. Auto configurations.
 
 
  * Arman Iqbal

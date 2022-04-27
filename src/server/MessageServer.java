@@ -33,14 +33,14 @@ public class MessageServer {
         }
     }
 
-    // Removes a server thread from the server's thread list.
-    public void removeMessageServerThread(MessageServerThread mst) {
-        this.serverThreads.remove(mst);
-    }
-
     //Will be incorporated when Connected user list is functional.
     public void removeUser(User e) {
         userList.remove(e);
+    }
+
+    // Removes a server thread from the server's thread list.
+    public void removeMessageServerThread(MessageServerThread mst) {
+        this.serverThreads.remove(mst);
     }
 
     public void handleMessage(Message m) {
