@@ -36,19 +36,29 @@ public class MessageClientThread implements Runnable {
         }
     }
 
+    /**
+     * Used by the client listener to differentiate between all the Event types and handles
+     * them accordingly.
+      * @param e Event type. (See the documentation in models.Event)
+     */
     public synchronized void handleEvent(Event e) {
+        // Add User
         if (e.getEventType() == 1) {
             System.out.println("Client: Got user " + e.getUser().toString());
             this.client.addUserToList(e.getUser());
         }
 
+        // Remove User
         else if (e.getEventType() == 2) {
             this.client.removeUserFromList(e.getUser());
         }
 
+        //Send Message
         else if (e.getEventType() == 3) {
             this.client.addMessage(e.getMessage());
         }
+
+        //Update "Connected users" list on client window.
         else if (e.getEventType() == 4) {
             System.out.println("Client: Got user list with " + e.getUserList().size());
             this.client.updateUserList(e.getUserList());
@@ -61,8 +71,6 @@ public class MessageClientThread implements Runnable {
             listenerThread = new Thread(this);
             listenerThread.start();
         }
-
-
     }
 
     public void stopListening() {

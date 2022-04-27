@@ -36,7 +36,7 @@ public class Event implements Serializable {
     /**
      * Constructor for sending an Event message.
      * @param eventType This should be used with Event type 3 (See the topmost comment in this class.)
-     * @param message Message object containing the message.
+     * @param message Message object containing the message and the username that sent it.
      */
     public Event(int eventType, Message message) {
         this.eventType = eventType;

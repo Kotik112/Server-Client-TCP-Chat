@@ -1,4 +1,9 @@
-/*
+/*TODO:
+    - Add Enums to event types.
+    - Fix bug with connected users.
+    - Do the threads need to be synchronized for connected users?
+
+
  * Arman Iqbal
  * Class of IoT21
  * 26-04-2022

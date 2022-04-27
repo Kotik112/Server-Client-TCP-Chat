@@ -1,3 +1,7 @@
+/**
+ * Used for Event type 3 - Send message. (see model.Event comments.)
+ */
+
 package models;
 
 import java.io.Serializable;

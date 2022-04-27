@@ -13,6 +13,7 @@ public class User implements Serializable {
         return username;
     }
 
+    // Mainly for debugging purposes.
     @Override
     public String toString() {
         return "User{" +
