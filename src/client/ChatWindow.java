@@ -52,8 +52,17 @@ public class ChatWindow extends JDialog {
         userText.setText("");
     }
 
+    public void updateUserList(List<User> userList) {
+        String userListString = "";
+        for(User user : userList) {
+            userListString += user.getUsername() + "\n";
+        }
+        this.connectedUsers.setText(userListString);
+    }
 
-
+    /**
+     * Getters and setters
+     */
     public JTextField getUserText() {
         return userText;
     }
@@ -78,11 +87,5 @@ public class ChatWindow extends JDialog {
         this.connectedUsers = connectedUsers;
     }
 
-    public void updateUserList(List<User> userList) {
-        String userListString = "";
-        for(User user : userList) {
-            userListString += user.getUsername() + "\n";
-        }
-        this.connectedUsers.setText(userListString);
-    }
+
 }

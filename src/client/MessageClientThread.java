@@ -90,6 +90,5 @@ public class MessageClientThread implements Runnable {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 }

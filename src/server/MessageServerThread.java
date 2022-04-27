@@ -16,7 +16,7 @@ public class MessageServerThread implements Runnable {
     Socket socket;
     ObjectOutputStream out;
     ObjectInputStream in;
-    Thread listenerThread;
+    Thread listenerThread = null;
     MessageServer messageServer;
 
     public MessageServerThread (Socket s, MessageServer messageServer) {

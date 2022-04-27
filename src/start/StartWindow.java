@@ -1,3 +1,9 @@
+/*
+ * Arman Iqbal
+ * Class of IoT21
+ * 26-04-2022
+ * */
+
 package start;
 
 import server.MessageServer;
@@ -44,6 +50,7 @@ public class StartWindow extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    //Starts Client
     private void onClientPressed() {
         MessageClient messageClient = new MessageClient();
         dispose();

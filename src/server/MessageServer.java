@@ -10,11 +10,13 @@ import java.util.List;
 public class MessageServer {
     private List<User> userList = new ArrayList<User>();
     private List<MessageServerThread> serverThreads = new ArrayList<MessageServerThread>();
-    private ListeningThread listeningThread;
+    private ListeningThread listeningThread = null;
 
     public MessageServer () {
-        listeningThread = new ListeningThread(this);
-        listeningThread.startListening();
+        if (listeningThread == null) {
+            listeningThread = new ListeningThread(this);
+            listeningThread.startListening();
+        }
     }
 
     public void addSocket(Socket s) {

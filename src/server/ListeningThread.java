@@ -6,8 +6,8 @@ import java.net.Socket;
 
 public class ListeningThread implements Runnable {
 
-    ServerSocket serverSocket;
-    Thread listenerThread;
+    ServerSocket serverSocket = null;
+    Thread listenerThread = null;
     MessageServer messageServer;
 
     public ListeningThread(MessageServer m) {
