@@ -1,7 +1,8 @@
 /*TODO:
     - Add Enums to event types.
-    - Fix bug with connected users.
-    - Do the threads need to be synchronized for connected users?
+    - Change connected user list to display alphabetically
+                    instead of the order in which they connected.
+    -
 
 
  * Arman Iqbal

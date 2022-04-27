@@ -52,7 +52,7 @@ public class MessageServerThread implements Runnable {
 
     /**
      * Used by the server to update the "connected users" list on client side.
-     * @param u List of all connected users.
+     * @param u Array list of all connected users.
      */
     public void sendUserList(ArrayList<User> u) {
         try {

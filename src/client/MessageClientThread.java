@@ -60,13 +60,13 @@ public class MessageClientThread implements Runnable {
 
         //Update "Connected users" list on client window.
         else if (e.getEventType() == 4) {
-            System.out.println("Client: Got user list with " + e.getUserList().size());
+            System.out.println("Client: Got user list with " + e.getUserList().size()); //For debugging. Remove later.
             this.client.updateUserList(e.getUserList());
         }
     }
 
     public void startListening() {
-        System.out.println("Client: Start listening!");
+        System.out.println("Client: Start listening!"); //For debugging. Remove later.
         if (listenerThread == null) {
             listenerThread = new Thread(this);
             listenerThread.start();
